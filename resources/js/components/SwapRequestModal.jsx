@@ -5,7 +5,7 @@ import { useState } from "react";
 function SwapRequestModal({show, handleClose}) {
   return (
     <div>
-      <Modal show={show}  onHide={handleClose}>
+      <Modal show={show}>
         <Modal.Body>
           <p>Le avisamos a UsuarioX que te interesa el intercambio.</p>
           <p>Si él/ella está interesado en hacer match se comunicará contigo.</p>
