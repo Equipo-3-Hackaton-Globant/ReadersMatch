@@ -4,23 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class bookController extends Controller
+class userController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $books = Book::all();
-        return view('home', compact('books'));
+         $user = User::find($id);
+        return view('favorite', compact('user'));
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
-  /*   public function create()
+ /*    public function create()
     {
-        //
+        
     } */
 
     /**
@@ -34,16 +35,15 @@ class bookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    /* public function show(string $id)
     {
-        $books = Book::find($id);
-        return view('show', compact('books'));
+        
     }
-
+ */
     /**
      * Show the form for editing the specified resource.
      */
-   /*  public function edit(string $id)
+  /*   public function edit(string $id)
     {
         //
     }
@@ -51,7 +51,7 @@ class bookController extends Controller
     /**
      * Update the specified resource in storage.
      */
-  /*   public function update(Request $request, string $id)
+    /* public function update(Request $request, string $id)
     {
         //
     } */
@@ -59,7 +59,7 @@ class bookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-   /*  public function destroy(string $id)
+    /* public function destroy(string $id)
     {
         //
     } */
