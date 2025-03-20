@@ -8,6 +8,7 @@
                 </form>
             </div>
 </div>
+
 <div>
 <h1>{{$book->title}}</h1>
         <h3>Publicado por {{$book->user->name}}</h3>
@@ -41,4 +42,6 @@
             </div>
           </div>
 </div>
+
+
 @endsection
