@@ -1,46 +1,74 @@
 @extends('layouts.app2')
 
 @section('content')
-
-
     <div class="container mt-4">
-        <h1>Mis Libros Ofrecidos</h1>
+        <h2>Mis Libros Ofrecidos</h2>
 
-            <form>
-            @foreach($user->books as $book)
-                <div class="form-group">
-                    <div class="input-group mb-4">
-                        <input type="text" class="form-control" id="offered_title" placeholder="Título del libro">
-                        <a class="dropdown-item" href="{{ route('edit',$book->id) }}">
-                        <button class="btn btn-outline-secondary" type="button">
-                            <i class="bi bi-pencil"></i>
-                        </button>
-                        </a>
-
-                        <button class="btn btn-outline-secondary" type="button">
-                            <i class="bi bi-trash"></i>
-                        </button>
+        @foreach ($user->books as $book)
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{asset($book->imgURL)}}" class="img-fluid rounded img-thumbnail" style="height: 300px" alt="{{$book->title}}">
                     </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">{{$book->title}}</h5>
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="fs-5 text-decoration-underline">Author:</h4>
+                                    <p>{{$book->author}}</p>
+                                </div>
+                                <div class="col">
+                                    <h4 class="fs-5 text-decoration-underline">format:</h4>
+                                    <p>{{$book->format}}</p>
+                                </div>
+                                <div class="col">
+                                    <h4 class="fs-5 text-decoration-underline">Publisher:</h4>
+                                    <p>{{$book->publisher}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="{{route('edit', $book->id)}}" class="btn btn-primary">Editar</a>
+                                    <a href="{{route('book', $book->id)}}" class="btn btn-danger">Borrar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
 
-                @endforeach
-            </form>
+        <h2>Mis Libros Favoritos</h2>
+
+        @foreach ($user->favoriteBooks as $book)
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{asset($book->imgURL)}}" class="img-fluid rounded img-thumbnail" style="height: 300px" alt="{{$book->title}}">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">{{$book->title}}</h5>
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="fs-5 text-decoration-underline">Author:</h4>
+                                    <p>{{$book->author}}</p>
+                                </div>
+                                <div class="col">
+                                    <h4 class="fs-5 text-decoration-underline">format:</h4>
+                                    <p>{{$book->format}}</p>
+                                </div>
+                                <div class="col">
+                                    <h4 class="fs-5 text-decoration-underline">Publisher:</h4>
+                                    <p>{{$book->publisher}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </div>
-
-
-    <div class="container mt-4">
-        <h1>Mis Libros Favoritos</h1>
-
-        <ul>
-            @foreach ($user->favoriteBooks as $book)
-                <li>{{ $book->title }}</li>
-            @endforeach
-        </ul>
-
-
-    @foreach($user->favoriteBooks as $book)
-        <p>si</p>
-    </div>
-    @endforeach
-
 @endsection
 
