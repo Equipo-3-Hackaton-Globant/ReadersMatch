@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -27,7 +28,7 @@ class BookController extends Controller
 
         if (!$request->search)
         {
-            return (Redirect::to(route("index")));
+            return (Redirect::to(route("home")));
         }
         $books = Book::whereLike("author", $search)
             ->orWhereLike("title", $search);
@@ -39,30 +40,6 @@ class BookController extends Controller
         $book = Book::find($id);
 
         return view("bookdetails", compact("book"));
-    }
-
-    public function store(Request $request)
-    {
-        $book = Book::create([
-            "title" => $request->title,
-            "author" => $request-> author,
-            "publisher" => $request -> publisher,
-            "observation" => $request -> observation,
-            "format" => $request -> format,
-            "imgURL" => $request -> imgURL
-        ]);
-
-        return ($book);
-    }
-
-    public function create(Request $request)
-    {
-        if($request-> method() == "POST")
-        {
-            $this->store($request);
-            return (Redirect::to(route("books")));
-        }
-        return (view("user.books.booksCreate"));
     }
 
     public function update(Request $request, Book $book)
@@ -88,10 +65,5 @@ class BookController extends Controller
             return (Redirect::to(route("books")));
         }
         return (view("user.books.booksEdit", compact("books")));
-    }
-
-    public function deleteById(string $id)
-    {
-        Book::find($id)->delete();
     }
 }
