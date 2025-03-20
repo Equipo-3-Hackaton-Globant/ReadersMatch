@@ -1,14 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 @section('content')
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-    </div>
-</div>
-
 <div>
     <h1>{{$book->title}}</h1>
     <h3>Publicado por {{$book->user->name}}</h3>
