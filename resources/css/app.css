@@ -1,12 +1,21 @@
-@import 'tailwindcss';
+.fav-btn {
+    width: 30px;
+    height: 30px;
+    border: solid black 1px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source "../**/*.blade.php";
-@source "../**/*.js";
-@source "../**/*.vue";
+.fav-btn.btn-success {
+    background: #6562E8 ; 
+    border-color: #6562E8;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+.fav-btn.btn-success svg {
+    fill: white;
 }
