@@ -44,7 +44,7 @@ class UserController extends Controller
         if($request->method() == "POST")
         {
             $this->store($request, $user);
-            return (Redirect::to(route("home")));
+            return (Redirect::to(route("user")));
         }
         return (view("booksCreate", compact("user")));
     }
@@ -69,10 +69,17 @@ class UserController extends Controller
         $book = Book::find($id);
         $user = Auth::user();
 
-        if ($request->method() === "POST") {
+        if ($request->method() === "POST")
+        {
             $this->update($request, $book, $user);
-            return (Redirect::to(route("home")));
+            return (Redirect::to(route("user")));
         }
         return (view("booksEdit", compact("book", "user")));
+    }
+
+    public function destroy(string $id)
+    {
+        Book::find($id)->delete();
+        Redirect::to(route("user"));
     }
 }

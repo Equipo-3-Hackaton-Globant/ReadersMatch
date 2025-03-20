@@ -66,9 +66,4 @@ class BookController extends Controller
         }
         return (view("user.books.booksEdit", compact("books")));
     }
-
-    public function destroy(string $id)
-    {
-        Book::find($id)->delete();
-    }
 }
