@@ -18,31 +18,47 @@ class BookController extends Controller
     {
         $books = Book::all();
 
-        return view('home', compact("books"));
+        return (view('home', compact("books")));
     }
 
-    // public function search(Request $request)
-    // {
-    //     return view("search", data);
-    // }
+    public function search(Request $request)
+    {
+        $search = '%'.$request->search.'%';
+
+        if (!$request->search)
+        {
+            return (Redirect::to(route("index")));
+        }
+        $books = Book::whereLike("author", $search)
+            ->orWhereLike("title", $search);
+        return (view("search", compact("books")));
+    }
+
+    public function show(string $id)
+    {
+        $book = Book::find($id);
+
+        return view("bookdetails", compact("book"));
+    }
 
     public function store(Request $request)
     {
-        $book = Book::create(
-            [
-                "title" => $request->title,
-                "author" => $request-> author,
-                "publisher" => $request -> publisher,
-                "observation" => $request -> observation,
-                "format" => $request -> format,
-                "imgURL" => $request -> imgURL
-            ]);
+        $book = Book::create([
+            "title" => $request->title,
+            "author" => $request-> author,
+            "publisher" => $request -> publisher,
+            "observation" => $request -> observation,
+            "format" => $request -> format,
+            "imgURL" => $request -> imgURL
+        ]);
+
         return ($book);
-        
     }
 
-    public function create(Request $request){
-        if($request-> method() == "POST"){
+    public function create(Request $request)
+    {
+        if($request-> method() == "POST")
+        {
             $this->store($request);
             return (Redirect::to(route("books")));
         }
@@ -58,7 +74,6 @@ class BookController extends Controller
             "observation" => $request -> observation,
             "format" => $request -> format,
             "imgURL" => $request -> imgURL
-
         ]);
     
         return ($book);
@@ -80,6 +95,5 @@ class BookController extends Controller
     {
         Book::find($id)->delete();
     }
-
 }
 
