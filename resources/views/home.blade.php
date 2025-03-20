@@ -11,7 +11,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <form class="d-flex" action="{{ route('search') }}" method="GET">
-                    <input class="form-control me-2" type="search" name="query" placeholder="Buscar por título o autor" aria-label="Search">
+                    <input class="form-control me-2" type="search" name="search" placeholder="Buscar por título o autor" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
             </div>
