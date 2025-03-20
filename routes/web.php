@@ -11,6 +11,5 @@ Route::get('/search', [BookController::class, 'search'])->name('search');
 Route::get('/books/{id}', [BookController::class, 'show'])->name('book');
 
 
-Route::get('/profile', function() {
-    return view('profile');
-})->name('profile');
+
+Route::get('/user', [UserController::class, 'index'])->name('user');
