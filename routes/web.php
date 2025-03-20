@@ -1,7 +1,8 @@
 <?php
 
-use app\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
+use app\Http\Controllers\BookController;
+use App\Http\Controllers\UserController;
 
 Auth::routes();
 

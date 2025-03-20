@@ -1,11 +1,10 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h3> Hola, {{ Auth::user()->name }} </h3>
-                <h1> Encuentra tu Libro </h1>
+                <h1> Libros Encontrados </h1>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -18,8 +17,10 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-12 py-4">
-                <h3> Ultimos Publicados </h3>
-                <div class="row">
+                <p><a href="{{ url('/') }}"><--Volver a Home</a></p> 
+        <div class="row"> 
+            <div class="col-md-12 py-4">
+                <div class="row"> 
                     @foreach($books as $book)
                         <div class="col-md-3 mb-4">
                             <div class="card">
@@ -32,9 +33,8 @@
                             </div>
                         </div>
                     @endforeach
-                </div>
+                </div> {{-- Cierra la fila de las tarjetas --}}
             </div>
         </div>
-
     </div>
 @endsection

@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.app2')
+
 @section('content')
 
     <!-- Mis Libros Ofrecidos -->
