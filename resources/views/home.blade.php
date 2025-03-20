@@ -45,11 +45,7 @@
             </div>
         @endif
 
-        @if ($book->id == 1)
-            <div></div>
-        @else
-            <p></p>
-        @endif
+       
     </div>
     </div>
     </div>
