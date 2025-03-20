@@ -24,8 +24,8 @@
                             <button type="button" class="btn btn-primary" popovertarget="prueba" popovertargetaction="show">
                                 Intercambiar
                             </button>
-                            <form action="{{ route('books.favorite', $book->id) }}" method="POST" class="d-inline">
-                                @csrf
+                            <form action="" method="POST" class="d-inline">
+                                
                                 <button type="submit" class="btn btn-success ml-2">Guardar en Favoritos</button>
                             </form>
                         </div>

@@ -42,10 +42,10 @@ class BookController extends Controller
         return view("bookdetails", compact("book"));
     }
 
-    public function favorite(Book $book)
-    {
-        auth()->user()->favoriteBooks()->attach($book->id);
-        return back()->with('success', 'Libro agregado a favoritos.');
-    }
+    // public function favorite(Book $book)
+    // {
+    //     auth()->user()->favoriteBooks()->attach($book->id);
+    //     return back()->with('success', 'Libro agregado a favoritos.');
+    // }
     
 }
