@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -45,11 +46,11 @@ class BookController extends Controller
     {
         $book = Book::create([
             "title" => $request->title,
-            "author" => $request-> author,
-            "publisher" => $request -> publisher,
-            "observation" => $request -> observation,
-            "format" => $request -> format,
-            "imgURL" => $request -> imgURL
+            "author" => $request->author,
+            "publisher" => $request ->publisher,
+            "observation" => $request->observation,
+            "format" => $request->format,
+            "imgURL" => $request->imgURL
         ]);
 
         return ($book);
@@ -90,8 +91,15 @@ class BookController extends Controller
         return (view("user.books.booksEdit", compact("books")));
     }
 
-    public function deleteById(string $id)
+    public function destroy(string $id)
     {
         Book::find($id)->delete();
+    }
+
+    public function user(string $id)
+    {
+        $user = User::find($id);
+
+        return (view("profile", compact("user")));
     }
 }
