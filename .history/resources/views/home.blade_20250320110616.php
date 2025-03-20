@@ -38,7 +38,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Nombre del Libro</h5>
                                 <p class="card-text">Autor</p>
-                                <a href="{{ route('welcome') }}" class="btn btn-primary">Detalles</a>
+                                <a href="{{ route('bookDetails') }}" class="btn btn-primary">Detalles</a>
                             </div>
                     </div>
                 </div>
