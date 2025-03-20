@@ -22,20 +22,9 @@
                         </button>
                     </div>
 
-
-                    <div class="input-group mb-4">
-                            <input type="text" class="form-control" id="offered_title" placeholder="Título del libro">
-
-                            <button class="btn btn-outline-secondary" type="button">
-                                <i class="bi bi-pencil"></i>
-                            </button>
-
-                            <button class="btn btn-outline-secondary" type="button">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                    </div>
                 @endforeach
             </form>
+    </div>
 
 
     <div class="container mt-4">
@@ -50,6 +39,7 @@
 
     @foreach($user->favoriteBooks as $book)
         <p>si</p>
+    </div>
     @endforeach
 
 @endsection
