@@ -13,3 +13,4 @@ import './bootstrap';
  */
 
 import './components/BookDetails';
+import './components/profile/Profile.jsx';

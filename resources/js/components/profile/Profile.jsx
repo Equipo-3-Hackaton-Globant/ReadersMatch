@@ -1,11 +1,13 @@
 // resources/js/components/UserProfile.js
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
+import { Form, Button } from 'react-bootstrap';
+import "./Profile.css"
 
 
 
 
-function MyForm() {
+function Profile() {
     // Estados para los campos del formulario
     const [input1, setInput1] = useState('');
     const [input2, setInput2] = useState('');
@@ -36,13 +38,13 @@ function MyForm() {
         <div>
             {/* Primer Formulario */}
             <Form onSubmit={handleSubmit1}>
-                <h2>Formulario 1</h2>
+                <h2>Mis libros ofrecidos</h2>
                 <div className="form-group">
                     <Form.Control
                         type="text"
                         value={input1}
                         onChange={(e) => setInput1(e.target.value)}
-                        placeholder="Campo 1"
+                        placeholder="Nombre del libro"
                     />
                 </div>
                 <div className="form-group">
@@ -50,7 +52,7 @@ function MyForm() {
                         type="text"
                         value={input2}
                         onChange={(e) => setInput2(e.target.value)}
-                        placeholder="Campo 2"
+                        placeholder="Nombre del libro"
                     />
                 </div>
                 <div className="form-group">
@@ -58,13 +60,11 @@ function MyForm() {
                         type="text"
                         value={input3}
                         onChange={(e) => setInput3(e.target.value)}
-                        placeholder="Campo 3"
+                        placeholder="Nombre del libro"
                     />
                 </div>
 
-                <Button variant="primary" type="submit">
-                    Enviar Formulario 1
-                </Button>
+
             </Form>
 
             {/* Espacio entre formularios */}
@@ -72,13 +72,13 @@ function MyForm() {
 
             {/* Segundo Formulario */}
             <Form onSubmit={handleSubmit2}>
-                <h2>Formulario 2</h2>
+                <h2>Mis libros favoritos</h2>
                 <div className="form-group">
                     <Form.Control
                         type="text"
                         value={input4}
                         onChange={(e) => setInput4(e.target.value)}
-                        placeholder="Campo 4"
+                        placeholder="Nombre del libro"
                     />
                 </div>
                 <div className="form-group">
@@ -86,7 +86,7 @@ function MyForm() {
                         type="text"
                         value={input5}
                         onChange={(e) => setInput5(e.target.value)}
-                        placeholder="Campo 5"
+                        placeholder="Nombre del libro"
                     />
                 </div>
                 <div className="form-group">
@@ -94,19 +94,17 @@ function MyForm() {
                         type="text"
                         value={input6}
                         onChange={(e) => setInput6(e.target.value)}
-                        placeholder="Campo 6"
+                        placeholder="Nombre del libro"
                     />
                 </div>
 
-                <Button variant="primary" type="submit">
-                    Enviar Formulario 2
-                </Button>
+
             </Form>
         </div>
     );
 }
 
-export default MyForm;
+export default Profile;
 
 if (document.getElementById('profile')) {
     const Index = ReactDOM.createRoot(document.getElementById('profile'));
