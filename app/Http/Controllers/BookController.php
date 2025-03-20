@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
@@ -75,7 +75,7 @@ class BookController extends Controller
             "format" => $request -> format,
             "imgURL" => $request -> imgURL
         ]);
-    
+
         return ($book);
     }
 
@@ -83,17 +83,15 @@ class BookController extends Controller
     {
         $book = Book::find($id);
 
-        if ($request->method() === "POST")
-        {
+        if ($request->method() === "POST") {
             $this->update($request, $book);
             return (Redirect::to(route("books")));
         }
         return (view("user.books.booksEdit", compact("books")));
     }
-    
+
     public function deleteById(string $id)
     {
         Book::find($id)->delete();
     }
 }
-
