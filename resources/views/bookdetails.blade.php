@@ -1,9 +1,10 @@
 @extends('layouts.app2')
 @section('content')
-<div>
+<div class="container">
+
     <h1>{{$book->title}}</h1>
     <h3>Publicado por {{$book->user->name}}</h3>
-    <img src="{{asset($book->imgURL)}}" alt="Portada del libro {{$book->title}}">
+    <img class="img-fluid" src="{{asset($book->imgURL)}}" alt="Portada del libro {{$book->title}}">
     <ul>
         <li>Autor: {{$book->author}}</li>
         <li>Ubicación: {{$book->user->location}}</li>
