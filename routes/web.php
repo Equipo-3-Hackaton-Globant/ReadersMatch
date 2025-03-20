@@ -9,3 +9,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/bookdetails', function() {
     return view('bookdetails');
 })->name('bookdetails');
+
+Route::get('/profile', function() {
+    return view('profile');
+})->name('profile');

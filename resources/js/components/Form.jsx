@@ -36,3 +36,11 @@ function Form() {
 }
 
 export default Form;
+if (document.getElementById('form-container')) {
+    const FormIndex = ReactDOM.createRoot(document.getElementById('form-container'));
+    FormIndex.render(
+        <React.StrictMode>
+            <Form />
+        </React.StrictMode>
+    );
+}
