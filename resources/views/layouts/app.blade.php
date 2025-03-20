@@ -25,8 +25,8 @@
                     {{ config('app.name', 'Laravel') }}
                 </a> -->
                 <a class="navbar-brand"  href="{{ url('/') }}">
-    <img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', 'Laravel') }}" height="30" >  {{ config('app.name', 'Laravel') }}
-</a>
+                    <img src="{{ asset('images/logo.svg') }}" alt="{{ config('app.name', 'Laravel') }}" height="30" >  {{ config('app.name', 'Laravel') }}
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -59,7 +59,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('profile') }}">
+                                <a class="dropdown-item" href="{{ route('user', Auth::user()->id) }}">
 
                                         {{ __('Mi perfil') }}
                                     </a>
