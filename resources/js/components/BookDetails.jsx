@@ -13,6 +13,7 @@ function BookDetails() {
     return (
         <>
             <Card>
+                
                 <div className="d-flex justify-content-between mt-2 p-2">
                     <Card.Title>Titulo del libro</Card.Title>
                     <FavButton />
