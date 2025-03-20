@@ -29,7 +29,7 @@ class BookController extends Controller
             $this->store($request);
             return (Redirect::to(route("books")));
         }
-        return (view("user.booksbooksCreate"));
+        return (view("user.books.booksCreate"));
     }
 
     public function update(Request $request, Book $book)
@@ -71,7 +71,7 @@ class BookController extends Controller
         if ($request->action == "delete")
         {
             $this->deleteById($request->id);
-            return (Redirect::to(route("planes")));
+            return (Redirect::to(route("books")));
         }
         return (view("user.books.books", compact("books")));
     }
