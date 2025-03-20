@@ -56,14 +56,16 @@ class BookController extends Controller
         return ($book);
     }
 
-    public function create(Request $request)
+    public function create(Request $request, string $userId)
     {
-        if($request-> method() == "POST")
+        $user = User::find($userId);
+
+        if($request->method() == "POST")
         {
             $this->store($request);
             return (Redirect::to(route("books")));
         }
-        return (view("user.books.booksCreate"));
+        return (view("booksCreate", compact("user")));
     }
 
     public function update(Request $request, Book $book)
@@ -96,7 +98,7 @@ class BookController extends Controller
         Book::find($id)->delete();
     }
 
-    public function user(string $id)
+    public function user(string $userId)
     {
         $user = User::find($id);
 
