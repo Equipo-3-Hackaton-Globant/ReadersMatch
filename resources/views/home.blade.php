@@ -24,24 +24,16 @@
             <div class="col-md-8 py-4">
                 <h3> Ultimos Publicados </h3>
                 <div>
-
+                @foreach($books as $book)
                     <div class="card" style="width: 100vh;">
-                        <img class="card-img-top” src="{{ asset('images/book1.jpg') }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset($book->imgURL) }}" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Nombre del Libro</h5>
-                            <p class="card-text">Autor</p>
-                            <a href="{{route('bookdetails')}}" class="btn btn-primary">Detalles</a>
+                            <h5 class="card-title">{{$book->title}}</h5>
+                            <p class="card-text">{{$book->author}}</p>
+                            <a href="{{route('bookdetails')}}" class="btn btn-primary">{{$book->observation}}</a>
                         </div>
-
-                        <div class="card" style="width: 100vh;">
-                            <img class="card-img-left” src="..." alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Nombre del Libro</h5>
-                                <p class="card-text">Autor</p>
-                                <a href="{{route('bookdetails')}}" class="btn btn-primary">Detalles</a>
-                            </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -53,8 +45,11 @@
             </div>
         @endif
 
-        <!-- {{ __('You are logged in!') }} -->
-        <!-- <div id="example"></div> -->
+        @if ($book->id == 1)
+            <div></div>
+        @else
+            <p></p>
+        @endif
     </div>
     </div>
     </div>

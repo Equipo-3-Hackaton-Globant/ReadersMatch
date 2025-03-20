@@ -21,6 +21,11 @@ class BookController extends Controller
         return view('home', compact("books"));
     }
 
+    // public function search(Request $request)
+    // {
+    //     return view("search", data);
+    // }
+
     public function store(Request $request)
     {
         $book = Book::create(
