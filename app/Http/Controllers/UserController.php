@@ -74,7 +74,7 @@ class UserController extends Controller
             $this->update($request, $book, $user);
             return (Redirect::to(route("user")));
         }
-        return (view("booksEdit", compact("book", "user")));
+        return (view("editBookForm", compact("book", "user")));
     }
 
     public function destroy(string $id)
