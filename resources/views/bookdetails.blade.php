@@ -23,11 +23,8 @@
                         <div class="mt-3">
                             <button type="button" class="btn btn-primary" popovertarget="prueba" popovertargetaction="show">
                                 Intercambiar
-                            </button>
-                            <form action="" method="POST" class="d-inline">
-                                
-                                <button type="submit" class="btn btn-success ml-2">Guardar en Favoritos</button>
-                            </form>
+                            </button>                               
+                            <a href="{{route('book', ['id' => $book->id, 'action' => 'save'])}}" class="btn btn-success ml-2">Guardar en Favoritos</a>
                         </div>
                     </div>
                 </div>
