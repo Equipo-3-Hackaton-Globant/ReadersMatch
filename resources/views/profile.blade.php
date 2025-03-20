@@ -48,5 +48,9 @@
         </ul>
 
 
+    @foreach($user->favoriteBooks as $book)
+        <p>si</p>
+    @endforeach
+
 @endsection
 

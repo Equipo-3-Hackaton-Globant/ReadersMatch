@@ -42,28 +42,10 @@ class BookController extends Controller
         return view("bookdetails", compact("book"));
     }
 
-    public function update(Request $request, Book $book)
+    public function favorite(Book $book)
     {
-        $book->update([
-            "title" => $request->title,
-            "author" => $request-> author,
-            "publisher" => $request -> publisher,
-            "observation" => $request -> observation,
-            "format" => $request -> format,
-            "imgURL" => $request -> imgURL
-        ]);
-
-        return ($book);
+        auth()->user()->favoriteBooks()->attach($book->id);
+        return back()->with('success', 'Libro agregado a favoritos.');
     }
-
-    public function edit(Request $request, string $id)
-    {
-        $book = Book::find($id);
-
-        if ($request->method() === "POST") {
-            $this->update($request, $book);
-            return (Redirect::to(route("books")));
-        }
-        return (view("user.books.booksEdit", compact("books")));
-    }
+    
 }
