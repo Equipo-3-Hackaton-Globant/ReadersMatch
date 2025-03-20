@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class userController extends Controller
 {
    
-    public function index()
+    public function index(string $id)
     {
         $user = User::find($id);
 

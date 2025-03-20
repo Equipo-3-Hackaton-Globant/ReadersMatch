@@ -23,7 +23,7 @@ class Book extends Model
      *
      * @var array<int, string>
      */
-    protected array $fillable = [
+    protected $fillable = [
         'user_id',
         'title',
         'author',
@@ -31,16 +31,6 @@ class Book extends Model
         'observation',
         'format',
         'imgURL',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected array $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
     ];
 
     /**
