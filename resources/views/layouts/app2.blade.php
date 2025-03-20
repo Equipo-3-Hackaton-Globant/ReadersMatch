@@ -87,7 +87,7 @@
             </div>
         </div>
     <main>
-        @yield('bookdetails')
+        @yield('content')
     </main>
 </body>
 
