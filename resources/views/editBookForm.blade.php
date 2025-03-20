@@ -3,7 +3,7 @@
 
     <!-- Mis Libros Ofrecidos -->
     <div class="container mt-4">
-        <h1>Mis Libros Ofrecidos</h1>
+        <h1>Editar Libro</h1>
 
         <form>
             <div class="form-group">
@@ -13,25 +13,20 @@
                 <input type="text" class="form-control" id="offered_author" placeholder="Autor">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="offered_publisher" placeholder="Editorial">
+                <input type="text" class="form-control" id="offered_publisher" placeholder="Ubicación">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="offered_observation" placeholder="Observación">
-            </div>
-        </form>
-    </div>
-
-            <div class="form-group">
-                <input type="text" class="form-control" id="fav_title" placeholder="Título del libro">
+                <input type="text" class="form-control" id="offered_observation" placeholder="Formato">
+                    <select class="form-select" id="format" name="format">
+                        <option value="papel">Papel</option>
+                        <option value="braille">Braille</option>
+                    </select>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="fav_author" placeholder="Autor">
+                <input type="text" class="form-control" id="fav_title" placeholder="Imagen">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="fav_publisher" placeholder="Editorial">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="fav_observation" placeholder="Observación">
+                <textarea class="form-control" id="fav_author" placeholder="Observaciones" rows="4"></textarea>
             </div>
         </form>
     </div>
