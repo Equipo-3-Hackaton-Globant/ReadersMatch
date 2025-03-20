@@ -67,7 +67,7 @@ class BookController extends Controller
     public function index(Request $request)
     {
         $books = book::all();
-        
+
         if ($request->action == "delete")
         {
             $this->deleteById($request->id);
