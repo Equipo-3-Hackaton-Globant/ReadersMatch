@@ -35,17 +35,22 @@ class BookController extends Controller
         return (view("search", compact("books")));
     }
 
-    public function show(string $id)
+    public function saveFavorite(Book $book)
+    {
+        Auth::user()->favoriteBooks()->attach($book->id);
+    }
+
+    public function show(Request $request, string $id)
     {
         $book = Book::find($id);
 
-        return view("bookdetails", compact("book"));
+        if ($request->action == "save")
+        {
+            $this->saveFavorite($book);
+            return (Redirect::to(route("book", $book->id)));
+        }
+        return (view("bookdetails", compact("book")));
     }
 
-    // public function favorite(Book $book)
-    // {
-    //     auth()->user()->favoriteBooks()->attach($book->id);
-    //     return back()->with('success', 'Libro agregado a favoritos.');
-    // }
     
 }
