@@ -7,10 +7,8 @@ use Illuminate\Http\Request;
 
 class userController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(string $id)
+   
+    public function index()
     {
         $user = User::find($id);
 
