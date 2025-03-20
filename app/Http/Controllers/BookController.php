@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
@@ -17,32 +17,38 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::all();
-
         return view('home', compact("books"));
     }
 
-    // public function search(Request $request)
-    // {
-    //     return view("search", data);
-    // }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $books = Book::where('title', 'LIKE', "%$query%")
+            ->orWhere('author', 'LIKE', "%$query%")
+            ->get();
+
+        return view('home', compact("books")); // Retorna a la vista 'home' con los resultados
+    }
 
     public function store(Request $request)
     {
         $book = Book::create(
             [
                 "title" => $request->title,
-                "author" => $request-> author,
-                "publisher" => $request -> publisher,
-                "observation" => $request -> observation,
-                "format" => $request -> format,
-                "imgURL" => $request -> imgURL
-            ]);
+                "author" => $request->author,
+                "publisher" => $request->publisher,
+                "observation" => $request->observation,
+                "format" => $request->format,
+                "imgURL" => $request->imgURL
+            ]
+        );
         return ($book);
-        
     }
 
-    public function create(Request $request){
-        if($request-> method() == "POST"){
+    public function create(Request $request)
+    {
+        if ($request->method() == "POST") {
             $this->store($request);
             return (Redirect::to(route("books")));
         }
@@ -53,14 +59,13 @@ class BookController extends Controller
     {
         $book->update([
             "title" => $request->title,
-            "author" => $request-> author,
-            "publisher" => $request -> publisher,
-            "observation" => $request -> observation,
-            "format" => $request -> format,
-            "imgURL" => $request -> imgURL
-
+            "author" => $request->author,
+            "publisher" => $request->publisher,
+            "observation" => $request->observation,
+            "format" => $request->format,
+            "imgURL" => $request->imgURL
         ]);
-    
+
         return ($book);
     }
 
@@ -68,18 +73,15 @@ class BookController extends Controller
     {
         $book = Book::find($id);
 
-        if ($request->method() === "POST")
-        {
+        if ($request->method() === "POST") {
             $this->update($request, $book);
             return (Redirect::to(route("books")));
         }
         return (view("user.books.booksEdit", compact("books")));
     }
-    
+
     public function deleteById(string $id)
     {
         Book::find($id)->delete();
     }
-
 }
-
