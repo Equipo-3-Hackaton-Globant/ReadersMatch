@@ -42,32 +42,6 @@ class BookController extends Controller
         return view("bookdetails", compact("book"));
     }
 
-    public function store(Request $request)
-    {
-        $book = Book::create([
-            "title" => $request->title,
-            "author" => $request->author,
-            "publisher" => $request ->publisher,
-            "observation" => $request->observation,
-            "format" => $request->format,
-            "imgURL" => $request->imgURL
-        ]);
-
-        return ($book);
-    }
-
-    public function create(Request $request, string $userId)
-    {
-        $user = User::find($userId);
-
-        if($request->method() == "POST")
-        {
-            $this->store($request);
-            return (Redirect::to(route("books")));
-        }
-        return (view("booksCreate", compact("user")));
-    }
-
     public function update(Request $request, Book $book)
     {
         $book->update([
@@ -96,12 +70,5 @@ class BookController extends Controller
     public function destroy(string $id)
     {
         Book::find($id)->delete();
-    }
-
-    public function user(string $userId)
-    {
-        $user = User::find($id);
-
-        return (view("profile", compact("user")));
     }
 }
