@@ -29,12 +29,21 @@
                 </div>
             </div>
         </div>
-
-        <div class="row justify-content-center mt-3">
-            <div class="col-md-8">
-                <div popover="manual" id="prueba">
-                    Le avisamos a {{ $book->user->name }} que te interesa el intercambio.
-                    Si {{ $book->user->name }} también quiere hacer match se comunicará contigo.
+     
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-8">
+            <div popover="manual" id="prueba" style="
+                background-color: #f5f5f5; 
+                border: 2px solid #238b8c; 
+                border-radius: 10px; 
+                padding: 100px;
+                width: 50%; 
+                margin: 10 auto;  
+                text-align: center; 
+            ">
+                Le avisamos a {{ $book->user->name }} que te interesa el intercambio.
+                Si {{ $book->user->name }} también quiere hacer match se comunicará contigo.
+                <div style="text-align: center; margin-top: 10px;">
                     <button class="btn btn-primary" popovertarget="prueba" popovertargetaction="hide">Cerrar</button>
                 </div>
             </div>
