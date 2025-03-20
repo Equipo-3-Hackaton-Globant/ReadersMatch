@@ -46,7 +46,7 @@ class UserController extends Controller
             $this->store($request, $user);
             return (Redirect::to(route("user")));
         }
-        return (view("booksCreate", compact("user")));
+        return (view("addBookForm", compact("user")));
     }
 
     public function update(Request $request, Book $book, User $user)

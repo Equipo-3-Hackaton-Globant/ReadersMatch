@@ -48,5 +48,9 @@
         </form>
     </div>
 
+    @foreach($user->favoriteBooks as $book)
+        <p>si</p>
+    @endforeach
+
 @endsection
 

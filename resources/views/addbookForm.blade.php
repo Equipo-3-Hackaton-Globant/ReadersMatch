@@ -1,35 +1,84 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Add Book') }}</div>
 
-    <!-- Mis Libros Ofrecidos -->
-    <div class="container mt-4">
-        <h1>Añadir Libro</h1>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('create') }}">
+                        @csrf
 
-        <form>
-            <div class="form-group">
-                <input type="text" class="form-control" id="offered_title" placeholder="Título del libro">
+                        <div class="row mb-3">
+                            <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Title') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" autofocus>
+
+                                @error('title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="author" class="col-md-4 col-form-label text-md-end">{{ __('Author') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="author" type="text" class="form-control @error('author') is-invalid @enderror" name="author" value="{{ old('author') }}" required autocomplete="author">
+
+                                @error('author')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="format" class="col-md-4 col-form-label text-md-end">{{ __('Format') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="format" type="text" class="form-control @error('format') is-invalid @enderror" name="format" required autocomplete="format">
+
+                                @error('format')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="imgURL" class="col-md-4 col-form-label text-md-end">{{ __('Image') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="imgURL" type="text" class="form-control" name="imgURL" required autocomplete="imgURL">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="observation" class="col-md-4 col-form-label text-md-end">{{ __('Observations') }}</label>
+                            <div class="col-md-6">
+                                <textarea id="observation" name="observation" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary mx-1">
+                                    {{ __('Add') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="offered_author" placeholder="Autor">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="offered_publisher" placeholder="Ubicación">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="offered_observation" placeholder="Formato">
-                    <select class="form-select" id="format" name="format">
-                        <option value="papel">Papel</option>
-                        <option value="braille">Braille</option>
-                    </select>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="fav_title" placeholder="imagen">
-            </div>
-            <div class="form-group">
-                <textarea class="form-control" id="fav_author" placeholder="Observaciones" rows="4"></textarea>
-            </div>
-            </form>
+        </div>
     </div>
-
+</div>
 @endsection
