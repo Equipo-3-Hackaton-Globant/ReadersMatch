@@ -9,6 +9,18 @@ use Illuminate\Support\Facades\Redirect;
 
 class BookController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $books = Book::all();
+
+        return view('home', compact("books"));
+    }
+
     public function store(Request $request)
     {
         $book = Book::create(
@@ -64,16 +76,5 @@ class BookController extends Controller
         Book::find($id)->delete();
     }
 
-    public function index(Request $request)
-    {
-        $books = book::all();
-
-        if ($request->action == "delete")
-        {
-            $this->deleteById($request->id);
-            return (Redirect::to(route("books")));
-        }
-        return (view("user.books.books", compact("books")));
-    }
 }
 
