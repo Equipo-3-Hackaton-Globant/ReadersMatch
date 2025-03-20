@@ -28,7 +28,7 @@ class BookController extends Controller
 
         if (!$request->search)
         {
-            return (Redirect::to(route("index")));
+            return (Redirect::to(route("home")));
         }
         $books = Book::whereLike("author", $search)
             ->orWhereLike("title", $search);
