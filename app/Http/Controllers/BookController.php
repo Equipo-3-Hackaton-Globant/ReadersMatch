@@ -41,29 +41,4 @@ class BookController extends Controller
 
         return view("bookdetails", compact("book"));
     }
-
-    public function update(Request $request, Book $book)
-    {
-        $book->update([
-            "title" => $request->title,
-            "author" => $request-> author,
-            "publisher" => $request -> publisher,
-            "observation" => $request -> observation,
-            "format" => $request -> format,
-            "imgURL" => $request -> imgURL
-        ]);
-
-        return ($book);
-    }
-
-    public function edit(Request $request, string $id)
-    {
-        $book = Book::find($id);
-
-        if ($request->method() === "POST") {
-            $this->update($request, $book);
-            return (Redirect::to(route("books")));
-        }
-        return (view("user.books.booksEdit", compact("books")));
-    }
 }
