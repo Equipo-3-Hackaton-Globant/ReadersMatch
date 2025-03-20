@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../../css/app.css';
+import './FavButton.css';
 
 function FavButton() {
     const [isClicked, setIsClicked] = useState(false);

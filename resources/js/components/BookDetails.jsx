@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import SwapRequestModal from "./SwapRequestModal";
 import { useState } from "react";
-import FavButton from "./FavButton";
+import FavButton from "./favbutton/FavButton";
 
 function BookDetails() {
     const [show, setShow] = useState(false);
