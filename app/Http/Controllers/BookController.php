@@ -31,7 +31,7 @@ class BookController extends Controller
             return (Redirect::to(route("home")));
         }
         $books = Book::whereLike("author", $search)
-            ->orWhereLike("title", $search);
+            ->orWhereLike("title", $search)->get();
         return (view("search", compact("books")));
     }
 
