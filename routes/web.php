@@ -14,3 +14,5 @@ Route::get('/books/{id}', [BookController::class, 'show'])->name('book');
 
 
 Route::get('/user', [UserController::class, 'index'])->name('user');
+
+Route::post('/books/{book}/favorite', [BookController::class, 'favorite'])->name('books.favorite');
