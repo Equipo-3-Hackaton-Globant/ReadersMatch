@@ -101,5 +101,20 @@ class DatabaseSeeder extends Seeder
             "publisher" => $user->name,
             "imgURL" => "images/book2.jpg"
         ]);
+
+        $user = User::find(1);
+        $user->favoriteBooks()->attach([1, 8, 7, 4]);
+
+        $user = User::find(2);
+        $user->favoriteBooks()->attach([5, 2, 10, 1]);
+
+        $user = User::find(3);
+        $user->favoriteBooks()->attach([3, 4, 12, 11]);
+
+        $user = User::find(4);
+        $user->favoriteBooks()->attach([8, 7, 6, 9]);
+
+        $user = User::find(5);
+        $user->favoriteBooks()->attach([6, 7, 9, 11]);
     }
 }
