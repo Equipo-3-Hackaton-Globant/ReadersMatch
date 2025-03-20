@@ -15,10 +15,15 @@ class UserController extends Controller
         $this->middleware("auth");
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
-
+        
+        if ($request->action == "delete")
+        {
+            $this->destroy($request->book_id);
+            return (Redirect::to(route("user")));
+        }
         return (view("profile", compact("user")));
     }
 

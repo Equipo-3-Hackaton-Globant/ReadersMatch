@@ -4,6 +4,7 @@
     <div class="container mt-4">
         <h2>Mis Libros Ofrecidos</h2>
 
+        <a href="{{route('create')}}" class="btn btn-primary mb-2">Añadir</a>
         @foreach ($user->books as $book)
             <div class="card mb-3">
                 <div class="row g-0">
@@ -30,7 +31,7 @@
                             <div class="row">
                                 <div class="col">
                                     <a href="{{route('edit', $book->id)}}" class="btn btn-primary">Editar</a>
-                                    <a href="{{route('book', $book->id)}}" class="btn btn-danger">Borrar</a>
+                                    <a href="{{route('user', ['action' => 'delete', 'book_id' => $book->id])}}" class="btn btn-danger">Borrar</a>
                                 </div>
                             </div>
                         </div>
