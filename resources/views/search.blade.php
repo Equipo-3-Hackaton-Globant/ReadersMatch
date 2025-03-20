@@ -17,6 +17,10 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-12 py-4">
+                <p><a href="{{ url('/') }}"><--Volver a Home</a></p> 
+        <div class="row"> 
+            <div class="col-md-12 py-4">
+                <div class="row"> 
                     @foreach($books as $book)
                         <div class="col-md-3 mb-4">
                             <div class="card">
@@ -29,7 +33,7 @@
                             </div>
                         </div>
                     @endforeach
-                </div>
+                </div> {{-- Cierra la fila de las tarjetas --}}
             </div>
         </div>
     </div>
